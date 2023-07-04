@@ -1,0 +1,142 @@
+{
+  "root": "apps/pages-gessa",
+  "sourceRoot": "apps/pages-gessa/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/pages-gessa",
+        "index": "apps/pages-gessa/src/index.html",
+        "baseHref": "/",
+        "main": "apps/pages-gessa/src/main.tsx",
+        "polyfills": "apps/pages-gessa/src/polyfills.ts",
+        "tsConfig": "apps/pages-gessa/tsconfig.app.json",
+        "assets": [
+          "apps/pages-gessa/src/favicon.ico"
+        ],
+        "styles": [
+          "node_modules/@iocraft/icons-material/lib/assets/icomoon/style.css"
+        ],
+        "scripts": [],
+        "webpackConfigOld": "@nrwl/react/plugins/webpack",
+        "webpackConfig": "apps/pages-gessa/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pages-gessa/src/environments/environment.ts",
+              "with": "apps/pages-gessa/src/environments/environment.prod.ts"
+            },
+            {
+              "replace": "apps/pages-gessa/webpack.config.js",
+              "with": "apps/pages-gessa/webpack.config.prod.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "staging": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pages-gessa/src/environments/environment.ts",
+              "with": "apps/pages-gessa/src/environments/environment.stage.ts"
+            },
+            {
+              "replace": "apps/pages-gessa/webpack.config.js",
+              "with": "apps/pages-gessa/webpack.config.stage.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "development": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pages-gessa/src/environments/environment.ts",
+              "with": "apps/pages-gessa/src/environments/environment.prod.ts"
+            },
+            {
+              "replace": "apps/pages-gessa/webpack.config.js",
+              "with": "apps/pages-gessa/webpack.config.dev.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "local": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pages-gessa/src/environments/environment.ts",
+              "with": "apps/pages-gessa/src/environments/environment.ts"
+            },
+            {
+              "replace": "apps/pages-gessa/webpack.config.js",
+              "with": "apps/pages-gessa/webpack.config.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "pages-gessa:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "pages-gessa:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/pages-gessa/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/pages-gessa"
+      ],
+      "options": {
+        "jestConfig": "apps/pages-gessa/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

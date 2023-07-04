@@ -1,0 +1,28 @@
+{
+  "root": "apps/pages-gessa-e2e",
+  "sourceRoot": "apps/pages-gessa-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/pages-gessa-e2e/cypress.json",
+        "devServerTarget": "pages-gessa:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "pages-gessa:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pages-gessa-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["pages-gessa"]
+}

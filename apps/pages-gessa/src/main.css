@@ -1,0 +1,4 @@
+@import 'gridstack/dist/gridstack.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

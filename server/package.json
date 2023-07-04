@@ -1,0 +1,17 @@
+{
+  "name": "angular-optimizer-poc",
+  "version": "1.0.0",
+  "description": "Exposing angular frontend app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayur Yambal",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^11.2.2",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "express-static-gzip": "^2.1.1"
+  }
+}
