@@ -52,8 +52,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => {
 });
 
 export default function GridCard(props: IGridCard) {
-  const ignorearray = ["card", "grid"];
-  const menuArray = ["Preview", "Share", "Download"];
+  const rejectType = ['card', 'grid'];
+  const menuArray = ['Preview', 'Share', 'Download'];
   const { widgets } = props;
   const theme = useTheme();
   const inputFile = useRef<any>(null);
@@ -342,7 +342,7 @@ export default function GridCard(props: IGridCard) {
             borderBottom: `1px solid${themeChart.palette?.neutral?.neu100}`,
           }}
         >
-          {_selectedWidget && !ignorearray.includes(_selectedWidget.type) && (
+          {_selectedWidget && !rejectType.includes(_selectedWidget.type) && (
             <div
               style={{
                 height: "48px",
