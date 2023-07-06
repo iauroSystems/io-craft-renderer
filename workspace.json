@@ -3,8 +3,6 @@
   "projects": {
     "pages-gessa": "apps/pages-gessa",
     "pages-gessa-e2e": "apps/pages-gessa-e2e",
-    "test": "apps/test",
-    "test-e2e": "apps/test-e2e",
     "view-page": "apps/view-page",
     "view-page-e2e": "apps/view-page-e2e"
   }

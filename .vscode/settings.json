@@ -1,0 +1,22 @@
+{
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeLens": true,
+  "git.mergeEditor": false,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.removeUnusedImports": true,
+    "source.organizeImports": true
+  },
+  // "git.mergeEditor": false,
+  // "editor.codeLens": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "sonarlint.connectedMode.project": {
+    "connectionId": "https-sonarqube-gessa-io",
+    "projectKey": "notification-events-mf"
+  }
+}
