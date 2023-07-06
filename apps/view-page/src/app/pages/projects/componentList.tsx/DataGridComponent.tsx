@@ -1,10 +1,10 @@
-import { DataGridV1 } from '@iocraft/component-library';
-import generateRandomString from 'apps/view-page/src/utils/randomString';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import LoadingData from '../components/LoadingData';
-import { DataGridDataMapping } from '../data-mapper/data-grid';
-import { getGridDataResource } from '../store/gridDataRenderSlice';
+import { GenericTableWrapper } from "@iocraft/component-library";
+import themes from "apps/view-page/src/theme";
+import generateRandomString from "apps/view-page/src/utils/randomString";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { DataGridDataMapping } from "../data-mapper/data-grid";
+import { getGridDataResource } from "../store/gridDataRenderSlice";
 
 export const DataGridComponent = (props: any) => {
   const [tableData, setTableData] = useState<any>();
@@ -15,13 +15,13 @@ export const DataGridComponent = (props: any) => {
         resolve(
           dispatch(
             getGridDataResource({
-              label: '',
-              report: props.rawData?.report || '',
-              widget_id: props.rawData.id || '',
-              projections: '',
-              filter: '',
-              size: '1000',
-              page: '0',
+              label: "",
+              report: props.rawData?.report || "",
+              widget_id: props.rawData.id || "",
+              projections: "",
+              filter: "",
+              size: "1000",
+              page: "0",
             })
           )
         );
@@ -52,51 +52,61 @@ export const DataGridComponent = (props: any) => {
   }, []);
 
   return props ? (
-    tableData && tableData?.chartData ? (
+    <div
+      key={generateRandomString()}
+      style={{
+        height: "calc(100% - 0px)",
+        width: "calc(100% - 0px)",
+        display: "flex",
+        flexDirection: "row",
+        flex: 100,
+      }}
+    >
       <div
-        key={generateRandomString()}
         style={{
-          height: 'calc(100% - 0px)',
-          width: 'calc(100% - 0px)',
-          display: 'flex',
-          flexDirection: 'row',
+          display: "flex",
+          flexDirection: "row",
           flex: 100,
+          overflowX: "auto",
+          height: "calc(100% - 0px)",
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flex: 100,
-            overflowX: 'auto',
+        <GenericTableWrapper
+          title={"Resource List"}
+          canSearch={true}
+          canFilter={true}
+          canDownload={true}
+          pageSizeOptions={[10, 20, 30, 40]}
+          tableData={{
+            rows: [],
+            headers: [],
           }}
-        >
-          <DataGridV1
-            key={generateRandomString()}
-            columnData={tableData?.chartData?.data?.columns || []}
-            rowData={tableData?.chartData?.data?.rows || []}
-            columnResizable={false}
-            pagination={tableData?.chartData?.pagination || false}
-            height={tableData.height || 300}
-            width={tableData.width || 500}
-            chartProps={tableData?.chartData?.chartProps}
-            menuClicked={tableData?.chartData?.menuClicked}
-            onSearchInput={tableData?.chartData?.onSearchInput}
-            rowClicked={props.rowClicked}
-          />
-        </div>
+          chartProps={{
+            background_color: themes.default?.palette?.background?.bacopWhite,
+            text_color: "#101425",
+            icon_color: "#131ca2",
+            icon_background: "#f2f4f8",
+          }}
+          count={10}
+        />
       </div>
-    ) : (
-      <LoadingData />
-    )
+    </div>
   ) : (
-    <DataGridV1
-      columnData={[]}
-      rowData={[]}
-      columnResizable
-      pagination={false}
-      height={0}
-      width={0}
+    <GenericTableWrapper
+      title={"Resource list"}
+      count={10}
+      canSearch={true}
+      canFilter={true}
+      canDownload={true}
+      pageSizeOptions={[10, 20, 30, 40]}
+      tableData={{
+        rows: [],
+        headers: [],
+      }}
+      chartProps={{
+        background_color: themes.default?.palette?.background?.default,
+        text_color: "#000000",
+      }}
     />
   );
 };
