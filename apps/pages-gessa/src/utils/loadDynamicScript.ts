@@ -1,28 +1,28 @@
 const loadDynamicScript = (
-  url: string
+    url: string
 ): Promise<{ message: string; element: HTMLScriptElement }> => {
-  return new Promise((resolve, reject) => {
-    const element = document.createElement('script');
+    return new Promise((resolve, reject) => {
+        const element = document.createElement('script');
 
-    element.src = url;
-    element.type = 'text/javascript';
-    element.async = true;
+        element.src = url;
+        element.type = 'text/javascript';
+        element.async = true;
 
-    element.onload = async () => {
-    
-      resolve({
-        message: 'Dynamic script added successfully',
-        element,
-      });
-    };
+        element.onload = async () => {
 
-    element.onerror = () => {
-    
-      reject({ message: `Dynamic Script Error: ${url}`, element });
-    };
+            resolve({
+                message: 'Dynamic script added successfully',
+                element,
+            });
+        };
 
-    document.head.appendChild(element);
-  });
+        element.onerror = () => {
+
+            reject({message: `Dynamic Script Error: ${url}`, element});
+        };
+
+        document.head.appendChild(element);
+    });
 };
 
 export default loadDynamicScript;

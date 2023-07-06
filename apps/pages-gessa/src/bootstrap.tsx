@@ -3,13 +3,14 @@ import App from './app/app';
 import './main.css';
 
 if (process.env.NODE_ENV !== 'development') {
-  console.log = () => {};
+    console.log = () => {
+    };
 }
 
 ReactDOM.render(
-  <div>
-    <App />
-  </div>,
+    <div>
+        <App/>
+    </div>,
 
-  document.getElementById('root')
+    document.getElementById('root')
 );

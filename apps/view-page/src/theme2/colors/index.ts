@@ -1,10 +1,10 @@
 export interface IThemeColor {
-  main: string;
-  light: string;
-  dark: string;
-  c50: string;
-  c100: string;
-  contrastDefaultColor?: 'light' | 'dark';
+    main: string;
+    light: string;
+    dark: string;
+    c50: string;
+    c100: string;
+    contrastDefaultColor?: 'light' | 'dark';
 }
 
 // export { default as ebonyClay } from './ebonyClay';

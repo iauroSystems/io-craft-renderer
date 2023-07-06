@@ -1,9 +1,9 @@
 interface IAuth {
-  isLoggedIn: boolean;
-  user_id?: string;
+    isLoggedIn: boolean;
+    user_id?: string;
 }
 
 type AuthContextType = {
-  auth: IAuth;
-  setAuth: (auth: IAuth) => void;
+    auth: IAuth;
+    setAuth: (auth: IAuth) => void;
 };

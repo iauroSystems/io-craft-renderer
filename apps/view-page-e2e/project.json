@@ -17,12 +17,18 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/view-page-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": [
+          "apps/view-page-e2e/**/*.{js,ts}"
+        ]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["view-page"]
+  "implicitDependencies": [
+    "view-page"
+  ]
 }

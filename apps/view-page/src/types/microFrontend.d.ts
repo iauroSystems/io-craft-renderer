@@ -1,8 +1,8 @@
 interface IMicrofrontends {
-  showHeader: boolean;
+    showHeader: boolean;
 }
 
 type MicrofrontendContextType = {
-  microFrontends: IMicrofrontends;
-  setMicroFrontends: (microFrontends: IMicrofrontends) => void;
+    microFrontends: IMicrofrontends;
+    setMicroFrontends: (microFrontends: IMicrofrontends) => void;
 };

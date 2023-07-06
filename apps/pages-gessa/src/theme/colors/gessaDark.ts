@@ -1,5 +1,3 @@
-import { IThemeColor } from '.';
-
 const gessaDark: any = {
     50: '#e5e6e8',
     100: '#bec1c5',
@@ -16,7 +14,6 @@ const gessaDark: any = {
     A400: '#004af6',
     A700: '#0042dd',
     contrastDefaultColor: 'light',
-  };
-  
-  export default gessaDark;
-  
+};
+
+export default gessaDark;

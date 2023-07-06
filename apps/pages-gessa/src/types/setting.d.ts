@@ -1,9 +1,9 @@
 interface ISettings {
-  layout?: string;
-  showHeader: boolean;
+    layout?: string;
+    showHeader: boolean;
 }
 
 type SettingContextType = {
-  settings: ISettings;
-  setSettings: (setting: ISettings) => void;
+    settings: ISettings;
+    setSettings: (setting: ISettings) => void;
 };

@@ -1,4 +1,4 @@
 export interface IPageConfig {
-  settings?: ISettings;
-  routes: IRoute[];
+    settings?: ISettings;
+    routes: IRoute[];
 }

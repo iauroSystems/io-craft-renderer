@@ -1,13 +1,13 @@
-import { getGreeting } from '../support/app.po';
+import {getGreeting} from '../support/app.po';
 
 describe('pages-gessa', () => {
-  beforeEach(() => cy.visit('/'));
+    beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+    it('should display welcome message', () => {
+        // Custom command example, see `../support/commands.ts` file
+        cy.login('my-email@something.com', 'myPassword');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome pages-gessa');
-  });
+        // Function helper example, see `../support/app.po.ts` file
+        getGreeting().contains('Welcome pages-gessa');
+    });
 });

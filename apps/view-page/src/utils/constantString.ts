@@ -77,7 +77,7 @@ export const constSave2 = 'Save';
  */
 
 export const deleteConfirmMessage =
-  'Are you sure you want to delete this widget?';
+    'Are you sure you want to delete this widget?';
 export const constYes = 'Yes';
 export const constNo = 'No';
 export const constMenuPreview = 'preview';

@@ -13,31 +13,31 @@ app.use(compression());
 var destinationDir = '';
 
 if (mf == 'pages-gessa') {
-  destinationDir = path.join(__dirname, 'pages-gessa/');
+    destinationDir = path.join(__dirname, 'pages-gessa/');
 } else if (mf == 'view-page') {
-  destinationDir = path.join(__dirname, 'view-page/');
+    destinationDir = path.join(__dirname, 'view-page/');
 }
 
 app.use(
-  '/',
-  expressStaticGzip(destinationDir, {
-    enableBrotli: true,
-    customCompressions: [
-      {
-        encodingName: 'gzip',
-        fileExtension: 'gz',
-      },
-    ],
-    orderPreference: ['br'],
-  })
+    '/',
+    expressStaticGzip(destinationDir, {
+        enableBrotli: true,
+        customCompressions: [
+            {
+                encodingName: 'gzip',
+                fileExtension: 'gz',
+            },
+        ],
+        orderPreference: ['br'],
+    })
 );
 
 app.listen(port);
 
 app.on('listening', function () {
-  console.log(
-    'Express server started on port %s at %s',
-    server.address().port,
-    server.address().address
-  );
+    console.log(
+        'Express server started on port %s at %s',
+        server.address().port,
+        server.address().address
+    );
 });

@@ -1,5 +1,4 @@
-import { Navigate } from 'react-router-dom';
-import { IPageConfig } from '../types/pageConfig';
+import {IPageConfig} from '../types/pageConfig';
 import getRoutesFromConfig from '../utils/getRoutesFromConfig';
 import ProjectConfig from '../app/pages/ProjectConfig';
 import ErrorConfig from '../app/pages/errors/ErrorConfig';

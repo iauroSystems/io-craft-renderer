@@ -1,74 +1,74 @@
-import { lazy, Suspense } from 'react';
+import {lazy, Suspense} from 'react';
 
 const ProjectWrapper = lazy(
-  () => import('./projects/component/ProjectWrapper')
+    () => import('./projects/component/ProjectWrapper')
 );
 
 const MyRoutes = {
-  routes: [
-    {
-      path: 'project/:projectId/:menuId/:subMenuId/',
-      element: <ProjectWrapper />,
-      children: [
+    routes: [
         {
-          path: ':projectId/',
-          element: <></>,
-          children: [
-            {
-              path: ':menuId/',
-              element: <></>,
-              children: [
+            path: 'project/:projectId/:menuId/:subMenuId/',
+            element: <ProjectWrapper/>,
+            children: [
                 {
-                  path: ':subMenuId/',
-                  element: <></>,
-                  children: [],
+                    path: ':projectId/',
+                    element: <></>,
+                    children: [
+                        {
+                            path: ':menuId/',
+                            element: <></>,
+                            children: [
+                                {
+                                    path: ':subMenuId/',
+                                    element: <></>,
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
                 },
-              ],
-            },
-          ],
+            ],
         },
-      ],
-    },
 
-    {
-      path: 'project/:projectId/:menuId',
-      element: (
-        <Suspense fallback={<></>}>
-          <ProjectWrapper />
-        </Suspense>
-      ),
-      children: [
         {
-          path: ':projectId/',
-          element: (
-            <Suspense fallback={<></>}>
-              <ProjectWrapper />
-            </Suspense>
-          ),
-          children: [
-            {
-              path: ':menuId/',
-              element: (
+            path: 'project/:projectId/:menuId',
+            element: (
                 <Suspense fallback={<></>}>
-                  <ProjectWrapper />
+                    <ProjectWrapper/>
                 </Suspense>
-              ),
-              children: [],
-            },
-          ],
+            ),
+            children: [
+                {
+                    path: ':projectId/',
+                    element: (
+                        <Suspense fallback={<></>}>
+                            <ProjectWrapper/>
+                        </Suspense>
+                    ),
+                    children: [
+                        {
+                            path: ':menuId/',
+                            element: (
+                                <Suspense fallback={<></>}>
+                                    <ProjectWrapper/>
+                                </Suspense>
+                            ),
+                            children: [],
+                        },
+                    ],
+                },
+            ],
         },
-      ],
-    },
-    {
-      path: 'project/:projectId/',
-      element: (
-        <Suspense fallback={<></>}>
-          <ProjectWrapper />
-        </Suspense>
-      ),
-      children: [],
-    },
-  ],
+        {
+            path: 'project/:projectId/',
+            element: (
+                <Suspense fallback={<></>}>
+                    <ProjectWrapper/>
+                </Suspense>
+            ),
+            children: [],
+        },
+    ],
 };
 
 export default MyRoutes;

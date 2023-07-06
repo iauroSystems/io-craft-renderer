@@ -1,9 +1,9 @@
-import { appliedTheme } from './palette';
-import { roboto } from './typography';
+import {appliedTheme} from './palette';
+import {roboto} from './typography';
 
 const appliedTh = {
-  palette: appliedTheme,
-  typography: roboto,
+    palette: appliedTheme,
+    typography: roboto,
 };
 
 export default appliedTh;
