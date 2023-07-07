@@ -72,7 +72,7 @@ const Grid = ({
 
   useEffect(() => {
     gridRef.current = GridStack.init({
-      cellHeight: 10,
+      cellHeight: 1,
       cellHeightUnit: "px",
       minRow: 8, // don't collapse when empty
       margin: 4,
