@@ -67,12 +67,10 @@ const DemoWrapper = (props: IGridProps) => {
     let properties: any = {};
     let cellWidth = 12;
     let cellHeight = 120;
-    console.log("gridDataStore", gridDataStore);
     if (gridDataStore?.widgets?.widgets?.properties) {
       properties = gridDataStore?.widgets?.widgets?.properties;
       cellWidth = properties?.width;
       cellHeight = properties?.height;
-      console.log("properties", properties);
     }
 
     if (
@@ -98,7 +96,6 @@ const DemoWrapper = (props: IGridProps) => {
           i < abc.children.length;
           i += 1
         ) {
-          console.log(i, abc.children.length);
           const _xval = Math.floor(
             gridDataStore?.widgets?.widgets?.children[i].properties.x /
               widthby12
@@ -107,7 +104,6 @@ const DemoWrapper = (props: IGridProps) => {
             gridDataStore?.widgets?.widgets?.children[i].properties.y / yval
           );
 
-          console.log("temp", _xval, _yval);
           const payload: any = {
             id: gridDataStore?.widgets?.widgets?.children[i].properties.id,
             type: gridDataStore?.widgets?.widgets?.children[i].properties.type,
@@ -115,14 +111,13 @@ const DemoWrapper = (props: IGridProps) => {
               +gridDataStore?.widgets?.widgets?.children[i]?.properties?.width /
                 widthby12
             ),
-            h: gridDataStore?.widgets?.widgets?.children[i].properties.height,
-            x: _xval,
-            y: gridDataStore?.widgets?.widgets?.children[i].properties.y,
-            // gridDataStore?.widgets?.widgets?.children[i].properties.type !==
-            // "grid"
-            //   ? _yval
-            //   : 20,
-
+            h: Math.round(
+              gridDataStore?.widgets?.widgets?.children[i].properties.height
+            ),
+            x: Math.round(_xval),
+            y: Math.round(
+              gridDataStore?.widgets?.widgets?.children[i].properties.y
+            ),
             widgetHeight:
               gridDataStore?.widgets?.widgets?.children[i].properties.height,
             widgetWidth: Math.ceil(
@@ -171,7 +166,6 @@ const DemoWrapper = (props: IGridProps) => {
           }
         }
         Promise.all(promiseArray).then(() => {
-          console.log("gridDataStore", gridLoadWidget);
           setGridData(gridLoadWidget);
         });
       }

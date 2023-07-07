@@ -98,7 +98,6 @@ const AddPages = (props: Props) => {
     const handleFileRead = (event2: any) => {
       try {
         const content = JSON.parse(event2.target.result);
-        console.log("content", content);
         const pageData = {
           page_id: pageID,
           widgets: content,

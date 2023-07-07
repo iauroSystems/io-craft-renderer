@@ -18,34 +18,34 @@ td {
   text-align: center;
 } */
 table {
-    text-align: left;
-    width: 100%;
-    position: relative;
-    border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
 }
 
 th,
 td {
-    padding: 0.25rem;
+  padding: 0.25rem;
 }
 
 tr.red th {
-    min-height: 50px;
-    background: #000000;
-    color: rgba(255, 255, 255, 0.12);
-    padding: 10px;
+  min-height: 50px;
+  background: #000000;
+  color: rgba(255, 255, 255, 0.12);
+  padding: 10px;
 }
 
 th {
-    background: #888;
-    position: sticky;
-    top: 0; /* Don't forget this, required for the stickiness */
-    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
+  background: #888;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  /* box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); */
+  z-index: 1000;
 }
 
 table,
 th,
 td {
-    border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }

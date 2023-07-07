@@ -63,11 +63,6 @@ export const getPageDataByIdApi = createAsyncThunk(
 
       if (pageIndex !== -1) {
         const isWidgetExist = pageData[pageIndex]?.fileData?.data;
-
-        console.log(
-          "pageData[pageIndex].fileData",
-          pageData[pageIndex].fileData
-        );
         if (isWidgetExist) {
           const pageWidgetData: IRPageWidgetData = {
             page_id: pageData[pageIndex].pageID,
