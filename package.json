@@ -11,7 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "11.8.1",
-    "@iocraft/component-library": "0.1.5",
+    "@iocraft/component-library": "0.1.6",
     "@iocraft/icons-material": "0.1.1",
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.8.4",

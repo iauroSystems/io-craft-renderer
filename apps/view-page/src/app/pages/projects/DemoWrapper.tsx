@@ -72,41 +72,101 @@ const DemoWrapper = (props: IGridProps) => {
       properties = gridDataStore?.widgets?.widgets?.properties;
       cellWidth = properties?.width;
       cellHeight = properties?.height;
-      console.log("gridDataStore", properties);
+      console.log("properties", properties);
     }
+
     if (
       gridDataStore &&
       gridDataStore &&
       gridDataStore?.widgets?.widgets?.children
     ) {
       if (gridDataStore && gridDataStore?.widgets?.widgets?.children?.length) {
+        const abc: any = JSON.parse(
+          JSON.stringify(gridDataStore?.widgets?.widgets)
+        );
         const gridLoadWidget: any = [];
+        const widgetArr = [];
+        const widthby12 = properties?.width / 12;
+        const heightby10 = properties?.height / 10;
+        const yval = properties?.y;
+
+        let updatedY = 0;
+
         for (
           let i = 0;
-          i < gridDataStore?.widgets?.widgets?.children?.length;
+          // i < 5;
+          i < abc.children.length;
           i += 1
         ) {
+          console.log(i, abc.children.length);
+          const _xval = Math.floor(
+            gridDataStore?.widgets?.widgets?.children[i].properties.x /
+              widthby12
+          );
+          const _yval = Math.floor(
+            gridDataStore?.widgets?.widgets?.children[i].properties.y / yval
+          );
+
+          console.log("temp", _xval, _yval);
           const payload: any = {
             id: gridDataStore?.widgets?.widgets?.children[i].properties.id,
             type: gridDataStore?.widgets?.widgets?.children[i].properties.type,
             w: Math.ceil(
-              +cellWidth /
-                +gridDataStore?.widgets?.widgets?.children[i]?.properties?.width
+              +gridDataStore?.widgets?.widgets?.children[i]?.properties?.width /
+                widthby12
             ),
-            h: Math.floor(
-              +cellHeight /
-                +gridDataStore?.widgets?.widgets?.children[i]?.properties
-                  ?.height
+            h: Math.ceil(
+              (gridDataStore?.widgets?.widgets?.children[i].properties.height /
+                heightby10) *
+                10
+            ),
+            x: _xval,
+            y: Math.ceil(
+              (gridDataStore?.widgets?.widgets?.children[i].properties.y /
+                properties.y) *
+                properties.h
             ),
 
-            // h: gridDataStore?.widgets?.widgets?.children[i].properties.height,
-            x: gridDataStore?.widgets?.widgets?.children[i].properties.x,
-            y: gridDataStore?.widgets?.widgets?.children[i].properties.y,
+            // gridDataStore?.widgets?.widgets?.children[i].properties.type !==
+            // "grid"
+            //   ? _yval
+            //   : 20,
+
             widgetHeight:
-              gridDataStore?.widgets?.widgets?.children[i].properties.height,
-            widgetWidth:
-              gridDataStore?.widgets?.widgets?.children[i].properties.width,
+              gridDataStore?.widgets?.widgets?.children[i].properties.height /
+              heightby10,
+            widgetWidth: Math.ceil(
+              gridDataStore?.widgets?.widgets?.children[i].properties.width /
+                widthby12
+            ),
           };
+          updatedY =
+            gridDataStore?.widgets?.widgets?.children[i].properties.height /
+            heightby10;
+
+          // const payload: any = {
+          //   id: gridDataStore?.widgets?.widgets?.children[i].properties.id,
+          //   type: gridDataStore?.widgets?.widgets?.children[i].properties.type,
+          //   w: Math.ceil(
+          //     +gridDataStore?.widgets?.widgets?.children[i]?.properties?.width /
+          //       widthby12
+          //   ),
+          //   h:
+          //     70 ||
+          //     Math.ceil(
+          //       gridDataStore?.widgets?.widgets?.children[i].properties.height /
+          //         heightby10
+          //     ) * 10,
+          //   x: _xval,
+          //   y: _yval,
+          //   widgetHeight:
+          //     gridDataStore?.widgets?.widgets?.children[i].properties.height /
+          //     heightby10,
+          //   widgetWidth: Math.ceil(
+          //     gridDataStore?.widgets?.widgets?.children[i].properties.width /
+          //       widthby12
+          //   ),
+          // };
           const dataIndex =
             gridDataStore?.widgets?.widgets?.children[i].properties.formData;
 
